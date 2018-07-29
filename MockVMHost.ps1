@@ -86,7 +86,7 @@ namespace MockVMHost
 }"
 
 $MockVMHost = New-Object MockVMHost.MockVMHost
-$MockVMHost -is [VMware.VimAutomation.ViCore.Impl.V1.Inventory.VMHostImpl]
+$MockVMHost -is [VMware.VimAutomation.ViCore.Types.V1.Inventory.VMHost]
 $MockVMHost.GetType()
 
 $MockVMHost.Name = 'TestVMHostName'
