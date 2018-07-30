@@ -8,6 +8,10 @@ $referencedAssemblies = "C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\M
 			"C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\Modules\VMware.VimAutomation.Core\VMware.VimAutomation.ViCore.Impl.dll",
 			"C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\Modules\VMware.VimAutomation.Core\VMware.VimAutomation.ViCore.Interop.dll",
 			"C:\Program Files (x86)\VMware\Infrastructure\PowerCLI\Modules\VMware.VimAutomation.Core\VMware.VimAutomation.ViCore.Types.dll"
+#Use Command to Generate info (gotta add methods) maybe static?
+#$Test = Get-VMhost | select -first 1 | Get-Member | Where-Object MemberType -eq Property | ForEach-Object { 
+# 	 Write-Output "public $($_.Definition.replace({get;},{ get; set; }) -replace `"System.Nullable[.*]`",`"$($_.Name)?`")"}
+
 
 Add-Type -ReferencedAssemblies $referencedAssemblies -Verbose -TypeDefinition @("
 	using VMware.VimAutomation.ViCore.Interop;
